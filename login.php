@@ -18,8 +18,9 @@ if (isset($_POST['submit']))
 		switch ($pwd) {
 			case $login_find['user_pass']:
 				$_SESSION['is_auth'] = 'true';
-				$_SESSION['id'] = $login_find['user_id'];
+				$_SESSION['user_id'] = $login_find['user_id'];
 				$_SESSION['user_name'] = $login_find['user_name'];
+				$_SESSION['user_role'] = $login_find['user_role'];
 				header("Location:index.php");
 				break;
 			

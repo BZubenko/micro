@@ -2,9 +2,9 @@
 
 require 'head.php';
 
-if (isset($_SESSION['role']))
+if (isset($_SESSION['user_role']))
 {
-	$role = $_SESSION['role'];
+	$role = $_SESSION['user_role'];
 
 	switch ($role) {
 		case 'user':
@@ -21,9 +21,9 @@ if (isset($_SESSION['role']))
 				$desrc = $_POST['desrc'];
 
 				
-				if (isset($_POST['photo']))
+				if (isset($_FILES['photo']))
 				{
-					$media = mysql_num_rows(mysql_query("select `id` from `media_objects`"));
+					$media = mysql_num_rows(mysql_query("select `object_id` from `media_objects`"));
 				$media++;
 
 					move_uploaded_file($_FILES['photo']['tmp_name'], 'gallery/'.$media);
@@ -70,7 +70,7 @@ else
 
 <fieldset>
 <legend> Добавить афишу</legend>
-<form action = 'add_poster.php' method = 'post'>
+<form action = 'add_poster.php' method = 'post' enctype = 'multipart/form-data'>
 	<label for="name">Назвиние Мероприятия: </label><br />
 	<input id = 'name' type = 'text' name = 'name' class = 'form-control'><br /><br />
 	<label for = 'desrc'> Описание: </label><br />

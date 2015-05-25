@@ -23,8 +23,8 @@ if (isset($_POST['register']))
 	else 
 	{
 		mysql_query("insert into `users` 
-			(`user_name`, `user_login`, `user_pass`, `user_email`, `user_phone`)
-			values ('".$user_name."' , '".$login."' , '".$password."' , '".$user_email."' , '".$user_phone."')")
+			(`user_name`, `user_login`, `user_pass`, `user_email`, `user_phone` , `user_role`)
+			values ('".$user_name."' , '".$login."' , '".$password."' , '".$user_email."' , '".$user_phone."' , 'user')")
 		or die(mysql_error());
 
 		header("Location:login.php?new=true");
