@@ -27,7 +27,11 @@ if (isset($_GET['date_search']))
 {
 	$search_action = '?date='.$_GET['date_search'];
 
-	$_where = $_where." date = '".$_GET['date_search']."'";
+	if (isset($_GET['search']))
+	{
+	$_where = $_where." `poster_date` = '".$_GET['date_search']."'";
+	}
+	$_where = "where `poster_date` = '".$_GET['date_search']."'";
 }
 else
 {

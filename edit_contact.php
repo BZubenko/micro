@@ -24,7 +24,7 @@ if (isset($_POST['submit_changes']))
 	}
 
 
-	if (isset($_POST['new_pass'])) 
+	if (isset($_POST['new_pass']) && !empty($_POST['new_pass'])) 
 	{
 		if ($_POST['new_pass'] !== $_POST['veryfi_pass']) 
 		{
